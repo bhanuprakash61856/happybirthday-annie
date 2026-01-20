@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Special Birthday Surprise for Annie 🎂</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts for Beautiful Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- GSAP for Professional Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <!-- tsParticles for Beautiful Particle Effects -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Typed.js for Typewriter Effects -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Lottie for Vector Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <!-- Three.js for 3D Graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Howler.js for Background Music -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+
+    <!-- ============ AI/ML LIBRARIES ============ -->
+
+    <!-- TensorFlow.js for ML -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+
+    <!-- Face-API.js for Emotion Detection -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+    <!-- A-Frame for AR/VR -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+    <!-- AR.js for Augmented Reality -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- DOMPurify for Safe HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+
+    <!-- EmailJS for Sending Emails -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loader-container">
+            <div class="loader-cross">✝</div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">Preparing something special...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music Control -->
+    <div id="musicControl" class="music-control">
+        <button id="musicToggle" class="music-toggle">🎵</button>
+    </div>
+
+    <!-- Custom Animated Cursor -->
+    <div id="customCursor" class="custom-cursor">
+        <div class="cursor-dot" id="cursorDot">🐼</div>
+        <div class="cursor-ring" id="cursorRing"></div>
+    </div>
+
+    <!-- Page 1: Birthday Room -->
+    <div id="page1" class="page active">
+        <!-- Particle Background -->
+        <div id="particles-page1"></div>
+
+        <!-- Fireworks Canvas -->
+        <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
+
+        <!-- Star Field Warp Speed -->
+        <canvas id="starWarpCanvas" class="star-warp-canvas"></canvas>
+
+        <!-- Liquid Morph Background -->
+        <div class="liquid-morph-bg">
+            <div class="liquid-blob blob-1"></div>
+            <div class="liquid-blob blob-2"></div>
+            <div class="liquid-blob blob-3"></div>
+        </div>
+
+        <!-- 3D Globe Container -->
+        <div id="globeContainer" class="globe-container"></div>
+
+        <!-- Aurora/Northern Lights Effect -->
+        <div class="aurora-container">
+            <div class="aurora aurora-1"></div>
+            <div class="aurora aurora-2"></div>
+            <div class="aurora aurora-3"></div>
+        </div>
+
+        <!-- Shooting Stars -->
+        <div class="shooting-stars">
+            <div class="shooting-star star-1"></div>
+            <div class="shooting-star star-2"></div>
+            <div class="shooting-star star-3"></div>
+            <div class="shooting-star star-4"></div>
+            <div class="shooting-star star-5"></div>
+        </div>
+
+        <!-- Light Beam from Heaven -->
+        <div class="heaven-light-beam">
+            <div class="beam beam-1"></div>
+            <div class="beam beam-2"></div>
+            <div class="beam beam-3"></div>
+        </div>
+
+        <!-- Snow/Glitter Fall -->
+        <div class="snow-container" id="snowContainer"></div>
+
+        <!-- Floating 3D Bible Quotes -->
+        <div class="floating-bible-quotes">
+            <div class="bible-quote-3d bq-1">"For I know the plans I have for you" - Jer 29:11</div>
+            <div class="bible-quote-3d bq-2">"The Lord bless you and keep you" - Num 6:24</div>
+            <div class="bible-quote-3d bq-3">"Be still and know that I am God" - Ps 46:10</div>
+            <div class="bible-quote-3d bq-4">"I can do all things through Christ" - Phil 4:13</div>
+        </div>
+
+        <!-- Divine Light Overlay -->
+        <div class="divine-light-overlay"></div>
+
+        <!-- Room Background -->
+        <div class="room-wall"></div>
+        <div class="room-floor"></div>
+
+        <!-- 3D Floating Balloons -->
+        <div class="balloons-container">
+            <div class="balloon balloon-1" style="--color: #ff6b9d;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon balloon-2" style="--color: #4facfe;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon balloon-3" style="--color: #43e97b;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon balloon-4" style="--color: #ffd700;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon balloon-5" style="--color: #ff6bff;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+            <div class="balloon balloon-6" style="--color: #00f2fe;">
+                <div class="balloon-body"></div>
+                <div class="balloon-string"></div>
+            </div>
+        </div>
+
+        <!-- Floating Blessings -->
+        <div class="floating-blessings">
+            <span class="blessing-text b-1">God Bless You</span>
+            <span class="blessing-text b-2">🕊️</span>
+            <span class="blessing-text b-3">✝️</span>
+            <span class="blessing-text b-4">Blessed</span>
+            <span class="blessing-text b-5">🙏</span>
+            <span class="blessing-text b-6">Happy Birthday</span>
+        </div>
+
+        <!-- Floating Hearts -->
+        <div class="floating-hearts">
+            <span class="heart h-1">💖</span>
+            <span class="heart h-2">💝</span>
+            <span class="heart h-3">💗</span>
+            <span class="heart h-4">💕</span>
+            <span class="heart h-5">❤️</span>
+        </div>
+
+        <!-- Room Decorations -->
+        <div class="room-decorations">
+            <div class="wall-banner">HAPPY BIRTHDAY</div>
+            <div class="party-lights"></div>
+            <div class="wall-balloons">
+                <div class="wall-balloon b1" style="background: linear-gradient(135deg, #ff6b9d, #c44569);"></div>
+                <div class="wall-balloon b2" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                <div class="wall-balloon b3" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+                <div class="wall-balloon b4" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+                <div class="wall-balloon b5" style="background: linear-gradient(135deg, #a8edea, #fed6e3);"></div>
+            </div>
+            <div class="confetti-static">
+                <div class="confetti-piece" style="left: 10%; top: 20%; background: #ff6b9d;"></div>
+                <div class="confetti-piece" style="left: 25%; top: 35%; background: #4facfe;"></div>
+                <div class="confetti-piece" style="left: 45%; top: 15%; background: #43e97b;"></div>
+                <div class="confetti-piece" style="left: 65%; top: 40%; background: #fa709a;"></div>
+                <div class="confetti-piece" style="left: 80%; top: 25%; background: #a8edea;"></div>
+                <div class="confetti-piece" style="left: 15%; top: 60%; background: #ffd93d;"></div>
+                <div class="confetti-piece" style="left: 70%; top: 55%; background: #ff6bff;"></div>
+            </div>
+        </div>
+
+        <!-- Gemini Generated Image with Angel Wings -->
+        <div class="gemini-image-container">
+            <!-- Angel Wings Behind Image -->
+            <div class="angel-wings">
+                <div class="wing wing-left">
+                    <div class="feather f1"></div>
+                    <div class="feather f2"></div>
+                    <div class="feather f3"></div>
+                    <div class="feather f4"></div>
+                    <div class="feather f5"></div>
+                </div>
+                <div class="wing wing-right">
+                    <div class="feather f1"></div>
+                    <div class="feather f2"></div>
+                    <div class="feather f3"></div>
+                    <div class="feather f4"></div>
+                    <div class="feather f5"></div>
+                </div>
+            </div>
+            <img src="equ/Gemini_Generated_Image_xqhbijxqhbijxqhb.png" alt="Birthday Celebration" class="gemini-image">
+            <div class="gemini-glow"></div>
+        </div>
+
+        <!-- Holographic Name Reveal -->
+        <div class="name-reveal-container holographic">
+            <div class="name-reveal">
+                <span class="letter hologram" data-letter="A">A</span>
+                <span class="letter hologram" data-letter="N">N</span>
+                <span class="letter hologram" data-letter="N">N</span>
+                <span class="letter hologram" data-letter="I">I</span>
+                <span class="letter hologram" data-letter="E">E</span>
+            </div>
+            <div class="name-glow hologram-glow"></div>
+        </div>
+
+        <!-- Center Table with Gift Box -->
+        <div class="center-table">
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+                <div class="gift-ribbon-v"></div>
+                <div class="gift-ribbon-h"></div>
+                <div class="gift-bow"></div>
+                <!-- Sparkle Effects on Gift -->
+                <div class="gift-sparkles">
+                    <span class="sparkle s1">✨</span>
+                    <span class="sparkle s2">✨</span>
+                    <span class="sparkle s3">✨</span>
+                    <span class="sparkle s4">✨</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typewriter Message -->
+        <div class="typewriter-container">
+            <p id="typewriter-text" class="typewriter-text"></p>
+        </div>
+
+        <!-- Magical Button -->
+        <div class="confirmation-container">
+            <button id="openBtn" class="magical-button" onclick="handleButtonClick(event)">
+                <span class="button-text">🐼 With full smile..CLICK HERE 🐼</span>
+                <span class="button-glow"></span>
+                <span class="button-particles"></span>
+            </button>
+        </div>
+
+        <!-- Lottie Animation Container -->
+        <div id="lottie-angel" class="lottie-container"></div>
+    </div>
+
+    <!-- Bible Verses Page -->
+    <div id="calendarPage" class="page">
+        <!-- Running Pandas -->
+        <div class="running-panda running-panda-1">🐼</div>
+        <div class="running-panda running-panda-2">🐼</div>
+        <div class="running-panda running-panda-3">🐼</div>
+
+        <!-- Particle Background -->
+        <div id="particles-calendar"></div>
+
+        <div class="calendar-background" id="verseBackground">
+            <div class="dove dove-1">🕊️</div>
+            <div class="dove dove-2">🕊️</div>
+            <div class="dove dove-3">🕊️</div>
+            <div class="cross-decoration cross-1">✝️</div>
+            <div class="cross-decoration cross-2">✝️</div>
+            <div class="light-rays"></div>
+
+            <!-- Floating Angels -->
+            <div class="floating-angels">
+                <span class="angel a1">👼</span>
+                <span class="angel a2">👼</span>
+            </div>
+        </div>
+
+        <div class="bible-verse-container" id="bibleVerseContainer">
+            <!-- Verse 1 -->
+            <div class="bible-verse-slide active" id="verseSlide1">
+                <div class="verse-content-box">
+                    <div class="verse-cross">✝️</div>
+                    <h2 class="verse-title">🎂 Birthday Blessing 🎂</h2>
+                    <div class="verse-text-main">
+                        <span class="verse-icon-large">📖</span>
+                        <p class="verse-quote">"For I know the plans I have for you," declares the LORD, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+                        <p class="verse-reference">— Jeremiah 29:11</p>
+                    </div>
+                    <div class="verse-explanation">
+                        <h3>💫 What This Means For You 💫</h3>
+                        <p>God has a beautiful plan for your life, Casendra! This verse reminds us that every birthday is not just a celebration of the past, but a promise of the amazing future God has prepared. He wants to prosper you, protect you, and fill your life with hope. Your new year is filled with divine purpose! 🌟</p>
+                    </div>
+                    <button class="verse-next-btn" id="verseNextBtn1">Next ➡️</button>
+                </div>
+            </div>
+
+            <!-- Verse 2 -->
+            <div class="bible-verse-slide" id="verseSlide2">
+                <div class="verse-content-box">
+                    <div class="verse-cross">✝️</div>
+                    <h2 class="verse-title">🌟 Year of Expansion 🌟</h2>
+                    <div class="verse-text-main">
+                        <span class="verse-icon-large">📖</span>
+                        <p class="verse-quote">"Enlarge the place of your tent, stretch your tent curtains wide, do not hold back; lengthen your cords, strengthen your stakes. For you will spread out to the right and to the left."</p>
+                        <p class="verse-reference">— Isaiah 54:2-3</p>
+                    </div>
+                    <div class="verse-explanation">
+                        <h3>💫 Your Expansion Year 💫</h3>
+                        <p>This is YOUR year of expansion, Casendra! God is telling you to dream bigger, reach further, and expect more. Don't limit yourself - God is about to expand your territory, your blessings, your influence, and your joy. Get ready for breakthrough and growth in every area of your life! 🚀✨</p>
+                    </div>
+                    <button class="verse-next-btn" id="verseNextBtn2">CLICK HERE ANNIEEE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Garden Scene -->
+    <div id="page2" class="page">
+        <!-- Fireworks Canvas for Page 2 -->
+        <canvas id="fireworks-canvas-2" class="fireworks-canvas"></canvas>
+
+        <!-- Particles for Page 2 -->
+        <div id="particles-page2"></div>
+
+        <!-- Aurora/Northern Lights -->
+        <div class="aurora-bg-page2">
+            <div class="aurora-wave aw-1"></div>
+            <div class="aurora-wave aw-2"></div>
+            <div class="aurora-wave aw-3"></div>
+        </div>
+
+        <!-- Bokeh Background -->
+        <div class="bokeh-container" id="bokehContainer"></div>
+
+        <!-- Fog/Smoke Effect -->
+        <div class="fog-container">
+            <div class="fog fog-1"></div>
+            <div class="fog fog-2"></div>
+        </div>
+
+        <!-- Spotlight Effect -->
+        <div class="spotlight-effect"></div>
+
+        <!-- Star Constellation (Cross Pattern) -->
+        <div class="star-constellation" id="starConstellation"></div>
+
+        <!-- Glowing Cross Centerpiece -->
+        <div class="glowing-cross-centerpiece">
+            <div class="cross-beam vertical"></div>
+            <div class="cross-beam horizontal"></div>
+            <div class="cross-glow-effect"></div>
+        </div>
+
+        <!-- Verse Rain Container -->
+        <div id="verseRainContainer" class="verse-rain-container"></div>
+
+        <!-- Rose Petals Container -->
+        <div class="rose-petals-container" id="rosePetalsContainer"></div>
+
+        <!-- Glowing Orbs -->
+        <div class="glowing-orbs-container" id="glowingOrbs">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="glow-orb orb-3"></div>
+            <div class="glow-orb orb-4"></div>
+            <div class="glow-orb orb-5"></div>
+        </div>
+
+        <!-- Golden Dust Particles -->
+        <div class="golden-dust-container" id="goldenDust"></div>
+
+        <!-- Glitter Rain -->
+        <div class="glitter-rain-container" id="glitterRain"></div>
+
+        <!-- 3D Cake Container -->
+        <div id="cake3dContainer" class="cake-3d-container"></div>
+
+        <!-- Cake Sparkle Effect -->
+        <div class="cake-sparkle-effect" id="cakeSparkle"></div>
+
+        <!-- Balloon Arch -->
+        <div class="balloon-arch">
+            <span class="arch-balloon ab-1">🎈</span>
+            <span class="arch-balloon ab-2">🎈</span>
+            <span class="arch-balloon ab-3">🎈</span>
+            <span class="arch-balloon ab-4">🎈</span>
+            <span class="arch-balloon ab-5">🎈</span>
+            <span class="arch-balloon ab-6">🎈</span>
+            <span class="arch-balloon ab-7">🎈</span>
+        </div>
+
+        <!-- Rainbow Arc -->
+        <div class="rainbow-container">
+            <div class="rainbow"></div>
+        </div>
+
+        <!-- Angel Choir -->
+        <div class="angel-choir">
+            <span class="choir-angel ca-1">👼</span>
+            <span class="choir-angel ca-2">👼</span>
+            <span class="choir-angel ca-3">👼</span>
+        </div>
+
+        <!-- Dove Formation -->
+        <div class="dove-formation">
+            <span class="dove-fly df-1">🕊️</span>
+            <span class="dove-fly df-2">🕊️</span>
+            <span class="dove-fly df-3">🕊️</span>
+            <span class="dove-fly df-4">🕊️</span>
+            <span class="dove-fly df-5">🕊️</span>
+        </div>
+
+        <!-- Flying Birds Formation spelling HAPPY BIRTHDAY -->
+        <div class="flying-birds-formation" id="flyingBirds">
+            <span class="formation-bird fb-1">🕊️</span>
+            <span class="formation-bird fb-2">🕊️</span>
+            <span class="formation-bird fb-3">🕊️</span>
+            <span class="formation-bird fb-4">🕊️</span>
+            <span class="formation-bird fb-5">🕊️</span>
+            <span class="formation-bird fb-6">🕊️</span>
+            <span class="formation-bird fb-7">🕊️</span>
+            <span class="formation-bird fb-8">🕊️</span>
+        </div>
+
+        <!-- Panda Section -->
+        <div class="panda-party-container">
+            <!-- Panda Dance Party -->
+            <div class="dancing-panda dp-1">🐼</div>
+            <div class="dancing-panda dp-2">🐼</div>
+            <div class="dancing-panda dp-3">🐼</div>
+            <!-- Panda Parade -->
+            <div class="panda-parade" id="pandaParade"></div>
+            <!-- Panda with Gift -->
+            <div class="panda-gift" id="pandaGift">🐼🎁</div>
+            <!-- Panda Blowing Kisses -->
+            <div class="panda-kisses" id="pandaKisses">🐼💋</div>
+            <!-- Panda with Banner -->
+            <div class="panda-banner">🐼 Happy Birthday Annie! 🐼</div>
+        </div>
+
+        <!-- Poppable Balloons -->
+        <div class="poppable-balloons" id="poppableBalloons">
+            <div class="pop-balloon pb-1" data-message="You're blessed!">🎈</div>
+            <div class="pop-balloon pb-2" data-message="God loves you!">🎈</div>
+            <div class="pop-balloon pb-3" data-message="Happy Birthday!">🎈</div>
+            <div class="pop-balloon pb-4" data-message="You're amazing!">🎈</div>
+            <div class="pop-balloon pb-5" data-message="Stay blessed!">🎈</div>
+        </div>
+
+        <!-- Wish Jar -->
+        <div class="wish-jar" id="wishJar">
+            <div class="jar-icon">🏺</div>
+            <div class="jar-label">Click for a Wish!</div>
+        </div>
+
+        <!-- Magic Wand Container (click anywhere for sparkles) -->
+        <div class="magic-wand-area" id="magicWandArea"></div>
+
+        <!-- Blessing Bubbles -->
+        <div class="blessing-bubbles-container" id="blessingBubbles"></div>
+
+        <!-- Fortune Cookie -->
+        <div class="fortune-cookie" id="fortuneCookie">
+            <div class="cookie-icon">🥠</div>
+            <div class="cookie-label">Open Fortune</div>
+        </div>
+
+        <!-- Gift Box Unwrap -->
+        <div class="gift-unwrap" id="giftUnwrap">
+            <div class="gift-closed">🎁</div>
+            <div class="gift-message hidden">You are God's precious gift to this world, Annie!</div>
+        </div>
+
+        <!-- Prayer Hands -->
+        <div class="prayer-hands-container">
+            <div class="prayer-hands">🙏</div>
+            <div class="prayer-glow"></div>
+        </div>
+
+        <!-- Bible Opening Animation -->
+        <div class="bible-open" id="bibleOpen">
+            <div class="bible-icon">📖</div>
+        </div>
+
+        <!-- Halo Effect for ANNIE name -->
+        <div class="halo-name-container">
+            <div class="halo-ring"></div>
+            <div class="halo-text">ANNIE</div>
+        </div>
+
+        <!-- Neon Text -->
+        <div class="neon-text-container">
+            <div class="neon-text">Happy Birthday!</div>
+        </div>
+
+        <!-- Floating Letters -->
+        <div class="floating-letters" id="floatingLetters">
+            <span class="float-letter fl-a">A</span>
+            <span class="float-letter fl-n1">N</span>
+            <span class="float-letter fl-n2">N</span>
+            <span class="float-letter fl-i">I</span>
+            <span class="float-letter fl-e">E</span>
+        </div>
+
+        <!-- Gold Leaf Text -->
+        <div class="gold-leaf-text">✨ Blessed ✨</div>
+
+        <!-- Photo Frame Gallery -->
+        <div class="photo-frames-container" id="photoFrames">
+            <div class="photo-frame pf-1">📷</div>
+            <div class="photo-frame pf-2">📷</div>
+            <div class="photo-frame pf-3">📷</div>
+        </div>
+
+        <!-- Party Stage -->
+        <div class="party-stage">
+            <div class="stage-curtain left"></div>
+            <div class="stage-curtain right"></div>
+        </div>
+
+        <!-- Lens Flare -->
+        <div class="lens-flare" id="lensFlare"></div>
+
+        <!-- Disco Ball -->
+        <div class="disco-ball-container">
+            <div class="disco-ball">🪩</div>
+            <div class="disco-lights" id="discoLights"></div>
+        </div>
+
+        <!-- Floating Lanterns -->
+        <div class="floating-lanterns">
+            <div class="lantern lantern-1"></div>
+            <div class="lantern lantern-2"></div>
+            <div class="lantern lantern-3"></div>
+            <div class="lantern lantern-4"></div>
+            <div class="lantern lantern-5"></div>
+        </div>
+
+        <!-- Floating Music Notes -->
+        <div class="music-notes-float" id="musicNotesFloat">
+            <span class="music-note mn-1">♪</span>
+            <span class="music-note mn-2">♫</span>
+            <span class="music-note mn-3">♩</span>
+            <span class="music-note mn-4">♬</span>
+            <span class="music-note mn-5">♪</span>
+            <span class="music-note mn-6">♫</span>
+        </div>
+
+        <!-- Photo Carousel -->
+        <div class="photo-carousel-container" id="photoCarousel">
+            <div class="carousel-track">
+                <div class="carousel-slide">📸</div>
+                <div class="carousel-slide">📸</div>
+                <div class="carousel-slide">📸</div>
+            </div>
+        </div>
+
+        <!-- Garden Sky -->
+        <div class="garden-sky">
+            <div class="sun">
+                <div class="sun-rays"></div>
+            </div>
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="birds">🦅</div>
+        </div>
+
+        <!-- Flying Butterflies -->
+        <div class="butterflies">
+            <span class="butterfly bf-1">🦋</span>
+            <span class="butterfly bf-2">🦋</span>
+            <span class="butterfly bf-3">🦋</span>
+            <span class="butterfly bf-4">🦋</span>
+            <span class="butterfly bf-5">🦋</span>
+        </div>
+
+        <!-- Floating Petals -->
+        <div class="floating-petals">
+            <span class="petal p-1">🌸</span>
+            <span class="petal p-2">🌸</span>
+            <span class="petal p-3">🌸</span>
+            <span class="petal p-4">🌸</span>
+            <span class="petal p-5">🌸</span>
+            <span class="petal p-6">🌸</span>
+            <span class="petal p-7">🌸</span>
+            <span class="petal p-8">🌸</span>
+        </div>
+
+        <!-- Garden Background -->
+        <div class="garden-background">
+            <div class="mountain mountain-1"></div>
+            <div class="mountain mountain-2"></div>
+            <div class="mountain mountain-3"></div>
+        </div>
+
+        <!-- Garden Trees -->
+        <div class="garden-trees">
+            <div class="tree tree-left">
+                <div class="tree-trunk"></div>
+                <div class="tree-leaves"></div>
+            </div>
+            <div class="tree tree-right">
+                <div class="tree-trunk"></div>
+                <div class="tree-leaves"></div>
+            </div>
+        </div>
+
+        <!-- Grass Ground with Flowers -->
+        <div class="grass-ground">
+            <div class="flower-patch flower-patch-1">🌺🌸🌼</div>
+            <div class="flower-patch flower-patch-2">🌻🌷🌹</div>
+            <div class="flower-patch flower-patch-3">🌸🌺🌼</div>
+        </div>
+
+        <!-- Garden Path -->
+        <div class="garden-path"></div>
+
+        <!-- Music Visualizer Bars -->
+        <div class="music-visualizer" id="musicVisualizer">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
+            <div class="bar bar-4"></div>
+            <div class="bar bar-5"></div>
+            <div class="bar bar-6"></div>
+            <div class="bar bar-7"></div>
+            <div class="bar bar-8"></div>
+            <div class="bar bar-9"></div>
+            <div class="bar bar-10"></div>
+        </div>
+
+        <!-- Celebration Text -->
+        <div class="celebration-text" id="celebrationText">
+            <span class="celeb-letter">H</span>
+            <span class="celeb-letter">A</span>
+            <span class="celeb-letter">P</span>
+            <span class="celeb-letter">P</span>
+            <span class="celeb-letter">Y</span>
+            <span class="celeb-space"></span>
+            <span class="celeb-letter">B</span>
+            <span class="celeb-letter">I</span>
+            <span class="celeb-letter">R</span>
+            <span class="celeb-letter">T</span>
+            <span class="celeb-letter">H</span>
+            <span class="celeb-letter">D</span>
+            <span class="celeb-letter">A</span>
+            <span class="celeb-letter">Y</span>
+        </div>
+
+        <!-- Animated Running Pandas Background -->
+        <div class="running-pandas">
+            <div class="running-panda panda-run-1">
+                <div class="panda-body">
+                    <div class="panda-head">
+                        <div class="panda-ear panda-ear-left"></div>
+                        <div class="panda-ear panda-ear-right"></div>
+                        <div class="panda-eye panda-eye-left"></div>
+                        <div class="panda-eye panda-eye-right"></div>
+                        <div class="panda-nose"></div>
+                        <div class="panda-mouth"></div>
+                    </div>
+                    <div class="panda-belly"></div>
+                    <div class="panda-arm panda-arm-left"></div>
+                    <div class="panda-arm panda-arm-right"></div>
+                    <div class="panda-leg panda-leg-left"></div>
+                    <div class="panda-leg panda-leg-right"></div>
+                </div>
+            </div>
+            <div class="running-panda panda-run-2">
+                <div class="panda-body">
+                    <div class="panda-head">
+                        <div class="panda-ear panda-ear-left"></div>
+                        <div class="panda-ear panda-ear-right"></div>
+                        <div class="panda-eye panda-eye-left"></div>
+                        <div class="panda-eye panda-eye-right"></div>
+                        <div class="panda-nose"></div>
+                    </div>
+                    <div class="panda-belly"></div>
+                    <div class="panda-arm panda-arm-left"></div>
+                    <div class="panda-arm panda-arm-right"></div>
+                    <div class="panda-leg panda-leg-left"></div>
+                    <div class="panda-leg panda-leg-right"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panda Carrying Cake Animation -->
+        <div class="panda-with-cake" id="pandaWithCake">
+            <div class="panda-carrier">
+                <!-- Panda Head -->
+                <div class="panda-head-big">
+                    <div class="panda-ear panda-ear-left"></div>
+                    <div class="panda-ear panda-ear-right"></div>
+                    <div class="panda-eye panda-eye-left">
+                        <div class="eye-white"></div>
+                    </div>
+                    <div class="panda-eye panda-eye-right">
+                        <div class="eye-white"></div>
+                    </div>
+                    <div class="panda-nose"></div>
+                    <div class="panda-smile"></div>
+                </div>
+                <!-- Panda Body -->
+                <div class="panda-body-big">
+                    <div class="panda-belly"></div>
+                    <div class="panda-arm panda-arm-left"></div>
+                    <div class="panda-arm panda-arm-right"></div>
+                    <div class="panda-leg-big panda-leg-left-big"></div>
+                    <div class="panda-leg-big panda-leg-right-big"></div>
+                </div>
+                <!-- Cake in Panda's Arms -->
+                <div class="cake-in-arms">
+                    <img src="equ/cake.png" alt="Cake" class="mini-cake">
+                </div>
+            </div>
+        </div>
+
+        <!-- Panda Theme Decorations -->
+        <div class="panda-decorations">
+            <div class="panda-face panda-top-left"></div>
+            <div class="panda-face panda-top-right"></div>
+            <div class="bamboo bamboo-left"></div>
+            <div class="bamboo bamboo-right"></div>
+            <div class="panda-balloons">
+                <div class="balloon balloon-1">🎈</div>
+                <div class="balloon balloon-2">🎈</div>
+                <div class="balloon balloon-3">🎈</div>
+                <div class="balloon balloon-4">🎈</div>
+            </div>
+            <div class="banner">🐼 HAPPY BIRTHDAY 🐼</div>
+        </div>
+
+        <!-- Wooden Table/Bench in Garden -->
+        <div class="wooden-bench">
+            <div class="bench-top"></div>
+            <div class="bench-leg bench-leg-left"></div>
+            <div class="bench-leg bench-leg-right"></div>
+
+            <!-- Cake on Bench -->
+            <div class="cake-container" id="cakeContainer">
+                <div class="candle-fire" id="candleFire">
+                    <img src="equ/fire blow.jpg" alt="Candle Fire" class="fire-image">
+                </div>
+                <img src="equ/cake.png" alt="Birthday Cake" class="cake-image" id="cakeImage">
+            </div>
+        </div>
+
+        <div id="countdown" class="countdown">10</div>
+        <div id="notification" class="notification"></div>
+
+        <!-- Audio Playing Indicator -->
+        <div id="audioIndicator" class="audio-indicator">
+            🎵 Singing Happy Birthday... 🎵
+        </div>
+
+        <!-- Scrolling Bible Verses Background -->
+        <div class="bible-verses-container">
+            <div class="bible-verse-scroll">
+                <span class="verse">"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you; the Lord turn his face toward you and give you peace." — Numbers 6:24-26</span>
+                <span class="verse">"May he give you the desire of your heart and make all your plans succeed." — Psalms 20:4 ⭐</span>
+                <span class="verse">"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11</span>
+                <span class="verse">"Even to your old age and gray hairs I am he, I am he who will sustain you. I have made you and I will carry you." — Isaiah 46:4</span>
+                <span class="verse">"Rejoice in the Lord always. I will say it again: Rejoice! The Lord is near. Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God will guard your hearts and minds." — Philippians 4:4-7</span>
+                <span class="verse">"Though the mountains be shaken and the hills be removed, yet my unfailing love for you will not be shaken nor my covenant of peace be removed." — Isaiah 54:10</span>
+                <span class="verse">"Call to me and I will answer you and tell you great and unsearchable things you do not know." — Jeremiah 33:3</span>
+            </div>
+        </div>
+
+        <!-- Celebration Effects -->
+        <div id="celebrationEffects" class="celebration-effects hidden">
+            <!-- Real Popper Animations -->
+            <div class="popper-animation popper-left">
+                <img src="https://media.giphy.com/media/g5R9dok94mrIvplmZd/giphy.gif" alt="Popper" class="popper-gif">
+            </div>
+            <div class="popper-animation popper-right">
+                <img src="https://media.giphy.com/media/g5R9dok94mrIvplmZd/giphy.gif" alt="Popper" class="popper-gif">
+            </div>
+
+            <!-- Flowerpot Crackers -->
+            <div class="flowerpot flowerpot-left">
+                <img src="https://i.pinimg.com/originals/4d/4f/f4/4d4ff4c8e3b3c3e3e3e3e3e3e3e3e3e3.gif" alt="Firework" class="firework-gif">
+            </div>
+            <div class="flowerpot flowerpot-right">
+                <img src="https://i.pinimg.com/originals/4d/4f/f4/4d4ff4c8e3b3c3e3e3e3e3e3e3e3e3e3.gif" alt="Firework" class="firework-gif">
+            </div>
+
+            <div class="confetti-container"></div>
+            <div class="panda-confetti-container"></div>
+        </div>
+    </div>
+
+    <!-- Page 3: Interactive Celebration -->
+    <div id="page3" class="page">
+        <!-- Particles for Page 3 -->
+        <div id="particles-page3"></div>
+
+        <!-- Floating Hearts Background -->
+        <div class="floating-hearts-bg" id="floatingHeartsBg"></div>
+
+        <div class="page3-content">
+            <h1 class="page3-title">🎉 Glory to God! 🎉</h1>
+
+            <!-- Age/Countdown Display -->
+            <div class="countdown-display" id="countdownDisplay">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="ageNumber">?</span>
+                    <span class="countdown-label">20th Birthday</span>
+                </div>
+            </div>
+
+            <!-- Photo Mosaic spelling ANNIE -->
+            <div class="photo-mosaic" id="photoMosaic">
+                <div class="mosaic-letter">A</div>
+                <div class="mosaic-letter">N</div>
+                <div class="mosaic-letter">N</div>
+                <div class="mosaic-letter">I</div>
+                <div class="mosaic-letter">E</div>
+            </div>
+
+            <!-- Panda Hugs Section -->
+            <div class="panda-hugs-section">
+                <div class="panda-hug-animation">
+                    <span class="hug-panda left">🐼</span>
+                    <span class="hug-heart">💕</span>
+                    <span class="hug-panda right">🐼</span>
+                </div>
+
+            </div>
+
+            <!-- Love Message Section -->
+            <div class="love-message-section">
+                <div class="love-letter" id="loveLetter">
+                    <div class="letter-header">💌 Simple Message 💌</div>
+                    <div class="letter-content">
+                        <p><strong>Praise the Lord, Annieeeee! 🙌🎉</strong></p>
+                        <p><strong>Happy Birthday! 🎂✨</strong><br>
+                        This year, you will see God's expansion in every area of your life. 🌱<br>
+                        You will experience His mercy and grace, and in the end, your face will shine with His glory. ✨😊</p>
+
+                        <p>I don't know how to explain it, but from the time I started speaking His Word, I have seen so many changes in my life. I am still changing… and I truly believe something useful from me would have helped you too. 💛 That itself makes me very happy.</p>
+
+                        <p>God has spoken a beautiful promise over you — that He will give you wisdom and understanding. 🕊️📖 I am extremely, extremely happy about that! Hold on to that Word, keep it in your heart, and ask for it through prayer. 🙏</p>
+
+                        <p><strong>Ephesians 6:15</strong> – Shoes of the gospel of peace 👣🕊️<br>
+                        Stand strong with it, no matter what comes.</p>
+
+                        <p>And remember:<br>
+                        <strong>Ephesians 6:16</strong> – Take up the shield of faith 🛡️✨<br>
+                        Build your shield — and every fear and attack will run away! 💥➡️</p>
+
+                        <p>From the very depth of my heart, thank you 💖 — to you and to Jesus ✝️ — for the verses through which we have learned, grown, and become stronger together. 🌿📖</p>
+
+                        <p><strong>Always stay happy 😄</strong><br>
+                        Everyone is happy in good times, but let us be different — let us stay joyful even in difficult times. 🌈</p>
+
+                        <p style="font-family: 'Noto Sans Tamil', sans-serif; font-size: 0.95em; line-height: 1.8;">
+                        வாழ்க்கை என்பதிலே நிறைவேறா விருப்பம் ஆயிரம் இருக்கும்<br>
+                        இமைக்கும் பொழுதினிலே நிலைமாறும் நிறைவேறும்<br>
+                        ராஜாவின் மடியில் விளையாடும் அழகு செல்லப்பிள்ளை<br>
+                        எல்லாம் சரியாகும் விளையாடு மகிழ்வோடு<br><br>
+                        காத்திருந்த நேரம் மாறி போகும் நேரம் வரும்<br>
+                        நீ பூத்து காய்த்து கனிகொடுத்து வாழ்க்கை மாறிவிடும்<br><br>
+                        உன்னை பார்த்து நகைத்த உறவுகள் எல்லாம் மீண்டும் கூட வரும்<br>
+                        நீ நீதியின் வாழ்க்கை வாழ்ந்தவன் என்று ஊரே பேரு சொல்லும்
+                        </p>
+
+                        <p>That's all…<br>
+                        <strong>God bless you, Annie! 😇</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Buttons -->
+            <div class="interactive-buttons">
+                <button class="magic-btn" id="confettiBoomBtn">🎊 Confetti Boom!</button>
+                <button class="magic-btn" id="replayMusicBtn">🎵 Replay Song</button>
+                <button class="magic-btn" id="blessingBtn">🙏 Get Blessing</button>
+            </div>
+
+            <!-- Special Voice Message Section -->
+            <div class="voice-message-section" id="voiceMessageSection">
+                <h2 class="section-title">🎤 A simple message for you Annieeee 🎤</h2>
+                <p class="section-subtitle">Click to listen!</p>
+                <button class="play-message-btn" id="playMessageBtn">
+                    <span class="play-icon">▶️</span>
+                    <span class="play-text">Listen to My Message</span>
+                </button>
+                <audio id="specialMessage" src="Record (online-voice-recorder.com) (2).mp3"></audio>
+            </div>
+
+            <!-- Prayer/Blessing Page Section -->
+            <div class="prayer-blessing-section" id="prayerBlessingSection">
+                <h2 class="section-title">🙏 Divine Blessings for Annie 🙏</h2>
+                <div class="blessing-cards">
+                    <div class="blessing-card">
+                        <div class="blessing-icon">✝️</div>
+                        <div class="blessing-text">"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you; the Lord turn his face toward you and give you peace."</div>
+                        <div class="blessing-ref">— Numbers 6:24-26</div>
+                    </div>
+                    <div class="blessing-card">
+                        <div class="blessing-icon">🕊️</div>
+                        <div class="blessing-text">"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."</div>
+                        <div class="blessing-ref">— Jeremiah 29:11</div>
+                    </div>
+                    <div class="blessing-card">
+                        <div class="blessing-icon">💫</div>
+                        <div class="blessing-text">"May He give you the desire of your heart and make all your plans succeed. May we shout for joy over your victory!"</div>
+                        <div class="blessing-ref">— Psalm 20:4-5</div>
+                    </div>
+                    <div class="blessing-card">
+                        <div class="blessing-icon">🌟</div>
+                        <div class="blessing-text">"The Lord your God is with you, the Mighty Warrior who saves. He will take great delight in you; He will quiet you with His love, He will rejoice over you with singing."</div>
+                        <div class="blessing-ref">— Zephaniah 3:17</div>
+                    </div>
+                </div>
+                <div class="special-prayer">
+                    <h3>🙏 A Special Birthday Prayer for Annie 🙏</h3>
+                    <p class="prayer-text">
+                        Heavenly Father, thank You for Annie's precious life. 💖<br>
+                        Cover her with Your mercy, grace, and perfect peace. 🕊️<br>
+                        Guide her steps and strengthen her faith every day. 👣🛡️<br>
+                        Fill her heart with wisdom, joy, and divine favor. 🌿😊<br>
+                        <em>"May He grant you according to your heart's desire."</em> — Psalm 20:4 ✨<br><br>
+                        Bring growth, expansion, and blessings in every season. 🌱🌈<br>
+                        Let her shine in Your perfect timing and purpose. 🌟<br>
+                        <em>"A little one shall become a thousand."</em> — Isaiah 60:22 👑<br>
+                        Turn every waiting season into a testimony of victory. 🙌<br><br>
+                        In Jesus' name, bless her life always. Amen ✝️🙏<br><br>
+                        <strong style="font-size: 1.2em;">Sayyyyyyyyyyyyyyy...Heyyyyyyyyy glory to god✨</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feedback Section - Send Message with Google Sign-In -->
+            <div class="feedback-section" id="feedbackSection">
+                <h2 class="feedback-title">💝 Share Your Thoughts, Annie! 💝</h2>
+                <p class="feedback-subtitle">Sign in and send a message 💕</p>
+
+                <!-- Google Sign-In Section -->
+                <div class="google-signin-section" id="googleSigninSection">
+                    <p class="signin-prompt">🔐 Please sign in with your Google account first:</p>
+                    <button class="google-signin-btn" id="googleSigninBtn">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="google-icon">
+                        <span>Sign in with Google</span>
+                    </button>
+                </div>
+
+                <!-- User Info (shown after sign-in) -->
+                <div class="user-info-section" id="userInfoSection" style="display: none;">
+                    <div class="user-profile">
+                        <img id="userPhoto" class="user-photo" src="" alt="Profile">
+                        <div class="user-details">
+                            <span class="user-name" id="userName">Annie</span>
+                            <span class="user-email" id="userEmail">email@example.com</span>
+                        </div>
+                        <button class="signout-btn" id="signoutBtn">Sign Out</button>
+                    </div>
+                </div>
+
+                <!-- Message Form (shown after sign-in) -->
+                <div class="message-form" id="messageForm" style="display: none;">
+                    <textarea id="feedbackMessage" class="feedback-textarea" placeholder="💭 What's on your mind, Annie? Type your thoughts, feelings, wishes, or anything you want to share... This message will be sent privately! 💕" rows="5"></textarea>
+                    <button class="send-feedback-btn" id="sendFeedbackBtn">
+                        <span class="btn-icon">💌</span>
+                        <span class="btn-text">Send Message</span>
+                    </button>
+                    <div class="feedback-status" id="feedbackStatus"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Lottie Animation Container -->
+            <div id="lottieCelebration" class="lottie-celebration"></div>
+
+            <!-- Final Blessing -->
+            <div class="final-blessing">
+                <p>🌟 "The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you." 🌟</p>
+                <p class="blessing-ref">— Numbers 6:24-25</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js?v=20260120"></script>
+
+    <!-- AI/ML Features Module - 100+ AI-Powered Features -->
+    <script src="ai-features.js?v=20260120"></script>
+</body>
+</html>
+
