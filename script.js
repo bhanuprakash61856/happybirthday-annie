@@ -499,6 +499,28 @@ function initPlaylist() {
         });
     });
 
+    // Forward buttons - skip 10 seconds forward
+    const forwardBtns = document.querySelectorAll('.forward-btn');
+    forwardBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (playlistAudio) {
+                playlistAudio.currentTime = Math.min(playlistAudio.duration, playlistAudio.currentTime + 10);
+            }
+        });
+    });
+
+    // Backward buttons - skip 10 seconds backward
+    const backwardBtns = document.querySelectorAll('.backward-btn');
+    backwardBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (playlistAudio) {
+                playlistAudio.currentTime = Math.max(0, playlistAudio.currentTime - 10);
+            }
+        });
+    });
+
     // Stop button
     const stopBtn = document.getElementById('stopSong');
     if (stopBtn) {
