@@ -451,6 +451,9 @@ function createSparkleAtPosition(x, y) {
 }
 
 // ============ BACKGROUND MUSIC ============
+let playlistAudio = null;
+let currentPlayingSong = null;
+
 function initBackgroundMusic() {
     // Using existing Happy Birthday Annie audio
     const audioElement = document.getElementById('birthdayAudio');
@@ -462,8 +465,107 @@ function initBackgroundMusic() {
 
     const musicToggle = document.getElementById('musicToggle');
     if (musicToggle) {
-        musicToggle.addEventListener('click', toggleMusic);
+        musicToggle.addEventListener('click', togglePlaylist);
     }
+
+    // Initialize playlist functionality
+    initPlaylist();
+}
+
+function togglePlaylist() {
+    const playlist = document.getElementById('songPlaylist');
+    if (playlist) {
+        playlist.classList.toggle('hidden');
+    }
+}
+
+function initPlaylist() {
+    const closeBtn = document.getElementById('closePlaylist');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            const playlist = document.getElementById('songPlaylist');
+            if (playlist) playlist.classList.add('hidden');
+        });
+    }
+
+    // Add click handlers to all play buttons
+    const playBtns = document.querySelectorAll('.play-song-btn');
+    playBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const songItem = e.target.closest('.song-item');
+            const songPath = songItem.getAttribute('data-song');
+            const songName = songItem.querySelector('.song-name').textContent;
+            playSong(songPath, songName, songItem);
+        });
+    });
+
+    // Stop button
+    const stopBtn = document.getElementById('stopSong');
+    if (stopBtn) {
+        stopBtn.addEventListener('click', stopCurrentSong);
+    }
+}
+
+function playSong(songPath, songName, songItem) {
+    // Stop any currently playing song
+    if (playlistAudio) {
+        playlistAudio.pause();
+        playlistAudio = null;
+    }
+
+    // Remove playing class from all songs
+    document.querySelectorAll('.song-item').forEach(item => {
+        item.classList.remove('playing');
+        item.querySelector('.play-song-btn').textContent = '▶️';
+    });
+
+    // Create new audio and play
+    playlistAudio = new Audio(songPath);
+    playlistAudio.volume = 0.7;
+    playlistAudio.play();
+    currentPlayingSong = songName;
+
+    // Update UI
+    songItem.classList.add('playing');
+    songItem.querySelector('.play-song-btn').textContent = '⏸️';
+
+    // Show now playing
+    const nowPlaying = document.getElementById('nowPlaying');
+    const currentSongName = document.getElementById('currentSongName');
+    if (nowPlaying && currentSongName) {
+        nowPlaying.classList.remove('hidden');
+        currentSongName.textContent = songName.replace(/^\d+\.\s*/, '');
+    }
+
+    // Handle song end
+    playlistAudio.addEventListener('ended', () => {
+        stopCurrentSong();
+    });
+
+    // Pause background music if playing
+    if (backgroundMusic && !backgroundMusic.paused) {
+        backgroundMusic.pause();
+    }
+}
+
+function stopCurrentSong() {
+    if (playlistAudio) {
+        playlistAudio.pause();
+        playlistAudio = null;
+    }
+
+    // Reset UI
+    document.querySelectorAll('.song-item').forEach(item => {
+        item.classList.remove('playing');
+        item.querySelector('.play-song-btn').textContent = '▶️';
+    });
+
+    const nowPlaying = document.getElementById('nowPlaying');
+    if (nowPlaying) {
+        nowPlaying.classList.add('hidden');
+    }
+
+    currentPlayingSong = null;
 }
 
 function toggleMusic() {

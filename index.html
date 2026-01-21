@@ -72,6 +72,39 @@
     <!-- Background Music Control -->
     <div id="musicControl" class="music-control">
         <button id="musicToggle" class="music-toggle">🎵</button>
+        <!-- Song Playlist Panel -->
+        <div id="songPlaylist" class="song-playlist hidden">
+            <div class="playlist-header">
+                <span>🎶 Songs for Annie 🎶</span>
+                <button id="closePlaylist" class="close-playlist">✕</button>
+            </div>
+            <div class="playlist-songs">
+                <div class="song-item" data-song="song/Ennavare _ A Love Hymn _ Tamil Christian Song _John Paul R.mp3">
+                    <span class="song-name">1. Ennavare - A Love Hymn</span>
+                    <button class="play-song-btn">▶️</button>
+                </div>
+                <div class="song-item" data-song="song/NADATHIDUVEER INIMELUM _ BEN SAMUEL #tamilchristiansongs.mp3">
+                    <span class="song-name">2. Nadathiduveer Inimelum</span>
+                    <button class="play-song-btn">▶️</button>
+                </div>
+                <div class="song-item" data-song="song/Nandriyodu Tamil Version _ Nathaniel Gladson - NG5 Productions _ Ft. Praiselin Stephen & Paul Silas.mp3">
+                    <span class="song-name">3. Nandriyodu Tamil Version</span>
+                    <button class="play-song-btn">▶️</button>
+                </div>
+                <div class="song-item" data-song="song/Pirantha Naal Muthalai ( Official video ) Johnsam Joyson _Tamil Christian New Song _4K.mp3">
+                    <span class="song-name">4. Pirantha Naal Muthalai</span>
+                    <button class="play-song-btn">▶️</button>
+                </div>
+                <div class="song-item" data-song="song/Puthiya Thuvakkam - Isaac D _ Tamil Christian song 2021 (1).mp3">
+                    <span class="song-name">5. Puthiya Thuvakkam</span>
+                    <button class="play-song-btn">▶️</button>
+                </div>
+            </div>
+            <div class="now-playing hidden" id="nowPlaying">
+                <span>🎵 Now Playing: <span id="currentSongName"></span></span>
+                <button id="stopSong" class="stop-song-btn">⏹️ Stop</button>
+            </div>
+        </div>
     </div>
 
     <!-- Custom Animated Cursor -->
